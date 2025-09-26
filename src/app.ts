@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { router } from "./app/routes";
+import { globalErrorHandler } from "./app/middlewares/errorHandler";
 
 const app = express();
 
@@ -15,5 +16,7 @@ app.get("/", (req : Request, res : Response) => {
         message : "Welcome to Mongo Node Sever"
     })
 })
+
+app.use(globalErrorHandler);
 
 export default app;
