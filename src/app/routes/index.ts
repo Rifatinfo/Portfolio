@@ -1,13 +1,12 @@
 import { Router } from "express";
-import { CustomerRoute } from "../modules/customer/customer.routes";
+import { UserRoute } from "../modules/user/user.routes";
 
 export const router = Router();
 
 const moduleRouters = [
     {
         path : "/",
-        route : CustomerRoute
-    }
+        route : UserRoute    }
 ]
 
 moduleRouters.forEach((route) => {
