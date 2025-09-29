@@ -8,7 +8,12 @@ const projectService = new ProjectService();
 
 export class ProjectController {
   createProject = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const project = await projectService.createProject(req.body);
+    req.body = JSON.parse(req.body.data);
+    const payload = {
+      ...req.body,
+      thumbnail : req.file?.path
+    }
+    const project = await projectService.createProject(payload);
 
     sendResponse(res, {
       success: true,
