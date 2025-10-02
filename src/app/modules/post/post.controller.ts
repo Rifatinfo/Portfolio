@@ -8,10 +8,6 @@ const postService = new PostService();
 
 export class PostController {
   createPost = catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    // console.log({
-    //   file : req.file,
-    //   body : req.body
-    // });
     req.body = JSON.parse(req.body.data);
     const payload = {
       ...req.body,
